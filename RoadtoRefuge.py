@@ -61,18 +61,21 @@ if choice_2 == "1":
     has_firstaidkit = False
     has_baseballbat = False
     print("당신은 카센터에 도착하여 공구 세트를 찾았습니다.")
+    print()
 elif choice_2 == "2":
     location = "hospital"
     has_toolset = False
     has_firstaidkit = True
     has_baseballbat = False
     print("당신은 병원에 도착하여 구급상자를 찾았습니다.")
+    print()
 elif choice_2 == "3":
     location = "school"
     has_toolset = False
     has_firstaidkit = False
     has_baseballbat = True
     print("당신은 학교에 도착하여 야구방망이를 찾았습니다.")
+    print()
 else:
     print("선택지를 줬는데 굳이 다른 걸 입력하는 심리는 뭘까?")
     print(f"{User_name}은(는) 사망했다!")
@@ -104,13 +107,14 @@ events_turn3 = {
     }
 }
 event = random.choice(list(events_turn3.keys()))
-print(event)
 #이벤트 좀비
-if event == events_turn3[zom]:
-    for key, value in events_turn3[zom].items():    #events_turn3[key].items()는 events_turn3 안에 있는 key에 해당하는 value 값을 튜플로 돌려준다.
-        print(value)                                #여기선 event_turnt3의 key의  value가 다시한번 딕셔너리 형태이다. 고로 인자 두 개를 할당하는것.
+if event == zom:
+    print(event)
+    for value in events_turn3[zom].values():
+        print(value)
 
     choice_zom = input("어떻게 하시겠습니까?: ")
+    print(choice_zom)
     if choice_zom == "1":
         if has_shotgun:
             print("당신의 샷건 소리를 듣고 좀비 떼가 몰려와 사망했습니다.")
@@ -152,26 +156,29 @@ if event == events_turn3[zom]:
         print("선택지를 줬는데 굳이 다른 걸 입력하는 심리는 뭘까?")
         print(f"{User_name}은(는) 사망했다!")
         sys.exit()
-
 #이벤트 강도
-if event == events_turn3[rob]:
-    for key, value in events_turn3[rob].items():
+elif event == rob:
+    print(event)
+    for value in events_turn3[rob].values():
         print(value)
-    
+
     choice_rob = input("어떻게 하시겠습니까?: ")
+    print(choice_rob)
     if choice_rob == "1":
         if has_shotgun:
-            event_rob = ["당신은 용감하게 맞서 싸웠지만 장렬히 전사하였습니다...", 
-                         "칫, 재수없긴. 강도들은 불필요한 리스크보다는 떠나는게 좋다고 판단했습니다."]
+            event_rob = [
+                "당신은 용감하게 맞서 싸웠지만 장렬히 전사하였습니다...", 
+                 "칫, 재수없긴. 강도들은 불필요한 리스크보다는 떠나는게 좋다고 판단했습니다."
+            ]
             rob_result = random.choice(event_rob)
             if rob_result == event_rob[0]:
                 print(rob_result)
-            else:
-                print(rob_result)
                 print(f"{User_name}은(는) 사망했다!")
                 sys.exit()
+            else:
+                print(rob_result)
         elif has_money:
-            print("뭐야, 이 녀석 샷건 없는 거 같은데? 당신은 가진 돈을 모두 빼앗겼습니다.")
+            print("뭐야, 이 녀석 사실 총 없는 거 같은데? 당신은 가진 돈을 모두 빼앗겼습니다.")
             has_money = False
         else:
             print("당신이 샷건을 가지고 있지 않고 있다는 것을 들켜 몸에 바랑구멍이 생겼습니다.")
@@ -186,7 +193,11 @@ if event == events_turn3[rob]:
             print(f"{User_name}은(는) 사망했다!")
             sys.exit()
     elif choice_rob == "3":
-        run_result = random.choie(event_run)
+        event_run = [
+            "당신은 용감하게 맞서 싸웠지만 장렬히 전사하였습니다...",
+            "칫, 재수없긴. 강도들은 불필요한 리스크보다는 떠나는게 좋다고 판단했습니다."
+        ]
+        run_result = random.choice(event_run)
         if run_result == event_run[0]:
             print(run_result)
         else:
@@ -197,13 +208,14 @@ if event == events_turn3[rob]:
         print("선택지를 줬는데 굳이 다른 걸 입력하는 심리는 뭘까?")
         print(f"{User_name}은(는) 사망했다!")
         sys.exit()
-
 #이벤트 생존자
-if event == events_turn3[suv]:
-    for key, value in events_turn3[suv].items():
+elif event == suv:
+    print(event)
+    for value in events_turn3[suv].values():
         print(value)
-    
+
     choice_suv = input("어떻게 하시겠습니까?: ")
+    print(choice_suv)
     if choice_suv == "1":
         if has_shotgun:
             print("어이쿠 당연히 드려야지요^^ 당신은 그에게서 가진 돈을 모두 빼앗았다.")
