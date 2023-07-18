@@ -1,4 +1,5 @@
-# yoon T: yun477@hamail.net
+import sys
+import random
 
 # 인트로
 print()
@@ -19,7 +20,6 @@ print()
 print("""2098년 세계 여러곳에서 동시다발적으로 좀비 바이러스가 퍼져 생존자들은 모두 벙커로 피신했습니다.
 당신은 더 이상 원래 살던 곳에 머무르기엔 너무 위험합니다. 집에서 나와 벙커에 도착해야합니다.""")
 print()
-import sys
 
 # 플레이어 사망
 def dead():
@@ -86,7 +86,6 @@ else:
 # 세번째 턴
 print()
 print("(3/7)")
-import random
 
 zom = "당신은 좀비 몇 마리와 마주쳤습니다."
 rob = "이런! 당신이 길을 가던 중 강도와 마주쳤습니다. 강도는 당신에게 돈을 내놓으라고 협박합니다."
